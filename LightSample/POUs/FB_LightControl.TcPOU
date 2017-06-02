@@ -1,0 +1,35 @@
+﻿<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.0.23">
+  <POU Name="FB_LightControl" Id="{53ee94f3-2100-4196-812f-11531270da1a}">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_LightControl
+VAR_INPUT
+	bOn				: BOOL;
+	bOff			: BOOL;
+	LightType		: ILight;
+END_VAR
+VAR_OUTPUT
+	bControlValue	: BOOL;
+END_VAR
+VAR
+	rtrigOn			: R_TRIG;
+	rtrigOff		: R_TRIG;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[rtrigOn(CLK := bOn);
+rtrigOff(CLK := bOff);
+
+IF (rtrigOn.Q) THEN
+	LightType.M_On();
+END_IF
+
+IF (rtrigOff.Q) THEN
+	LightType.M_Off();
+END_IF
+
+LightType.M_Execution();
+bControlValue := LightType.P_ControlValue;
+]]></ST>
+    </Implementation>
+    <ObjectProperties />
+  </POU>
+</TcPlcObject>

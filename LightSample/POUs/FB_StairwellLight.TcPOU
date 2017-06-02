@@ -1,0 +1,65 @@
+﻿<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.0.23">
+  <POU Name="FB_StairwellLight" Id="{79c55de8-ccf9-4597-abb4-0bbb5aa395ab}">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_StairwellLight IMPLEMENTS ILight
+VAR
+	bControlValue		: BOOL;
+	fbTon				: TON := (PT := TIME#3s0ms);
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="M_Execution" Id="{35a4aad4-009e-4f1a-9112-614c2c4d4b18}">
+      <Declaration><![CDATA[METHOD M_Execution
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[fbTon();
+IF (fbTon.Q) THEN
+	THIS^.M_Off();
+END_IF
+]]></ST>
+      </Implementation>
+      <ObjectProperties />
+    </Method>
+    <Property Name="P_ControlValue" Id="{6a2201ed-d1dd-438a-9303-4922b0bf3678}">
+      <Declaration><![CDATA[PROPERTY P_ControlValue : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{0e696bef-4d2a-43ac-a71d-38b653a521cd}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[P_ControlValue := bControlValue;]]></ST>
+        </Implementation>
+        <ObjectProperties />
+      </Get>
+      <Set Name="Set" Id="{57dd2b86-ea29-494d-8e8c-9c624dae1cae}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[bControlValue := P_ControlValue;]]></ST>
+        </Implementation>
+        <ObjectProperties />
+      </Set>
+      <ObjectProperties />
+    </Property>
+    <Method Name="M_On" Id="{c5f9a38b-ceb1-4d0e-952a-1d697d4a5ea5}">
+      <Declaration><![CDATA[METHOD M_On
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[P_ControlValue := TRUE;
+fbTon(IN := TRUE);
+]]></ST>
+      </Implementation>
+      <ObjectProperties />
+    </Method>
+    <Method Name="M_Off" Id="{fbe6cfee-642c-4e29-b0bd-1767ede94dcb}">
+      <Declaration><![CDATA[METHOD M_Off
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[P_ControlValue := FALSE;
+fbTon(IN := FALSE);
+]]></ST>
+      </Implementation>
+      <ObjectProperties />
+    </Method>
+    <ObjectProperties />
+  </POU>
+</TcPlcObject>

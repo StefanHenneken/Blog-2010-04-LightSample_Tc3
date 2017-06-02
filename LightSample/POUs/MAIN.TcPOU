@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4019.2">
+  <POU Name="MAIN" Id="{6e6251ea-19b9-45eb-83bf-b1d79914c509}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbLightControlRoom01	: FB_LightControl;
+	bSwitchOn01				: BOOL;
+	bSwitchOff01			: BOOL;
+	bValue01				: BOOL;
+	fbStandardLight			: FB_StandardLight;
+	fbLightControlRoom02	: FB_LightControl;
+	bSwitchOn02				: BOOL;
+	bSwitchOff02			: BOOL;
+	bValue02				: BOOL;
+	fbStairwellLight		: FB_StairwellLight;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbLightControlRoom01(bOn := bSwitchOn01, 
+					 bOff := bSwitchOff01, 
+					 LightType := fbStandardLight,
+					 bControlValue => bValue01);
+
+fbLightControlRoom02(bOn := bSwitchOn02, 
+					 bOff := bSwitchOff02, 
+					 LightType := fbStairwellLight,
+					 bControlValue => bValue02);
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

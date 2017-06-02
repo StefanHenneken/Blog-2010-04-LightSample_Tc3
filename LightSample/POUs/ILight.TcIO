@@ -1,0 +1,35 @@
+﻿<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.0.23">
+  <Itf Name="ILight" Id="{3565a55e-14ef-499b-9ae1-18d8e4acc4c8}">
+    <Declaration><![CDATA[INTERFACE ILight
+]]></Declaration>
+    <Method Name="M_Off" Id="{3803cdc9-dd34-4531-9d06-6c96402f42c7}">
+      <Declaration><![CDATA[METHOD M_Off
+]]></Declaration>
+      <ObjectProperties />
+    </Method>
+    <Property Name="P_ControlValue" Id="{6e1157b2-5bf6-483c-a2fe-25c64b4ab075}">
+      <Declaration><![CDATA[PROPERTY P_ControlValue : BOOL
+]]></Declaration>
+      <Set Name="Set" Id="{7c7e8938-e5d1-4954-b4e5-17adf0402d3b}">
+        <Declaration><![CDATA[]]></Declaration>
+        <ObjectProperties />
+      </Set>
+      <Get Name="Get" Id="{cfa9e474-1ee4-4804-ab55-2295e728314c}">
+        <Declaration><![CDATA[]]></Declaration>
+        <ObjectProperties />
+      </Get>
+      <ObjectProperties />
+    </Property>
+    <Method Name="M_On" Id="{cc65df01-5c0e-4d92-b648-2203af88d63c}">
+      <Declaration><![CDATA[METHOD M_On
+]]></Declaration>
+      <ObjectProperties />
+    </Method>
+    <Method Name="M_Execution" Id="{f2737487-df93-4ce7-bd45-f8f4c0002286}">
+      <Declaration><![CDATA[METHOD M_Execution
+]]></Declaration>
+      <ObjectProperties />
+    </Method>
+    <ObjectProperties />
+  </Itf>
+</TcPlcObject>

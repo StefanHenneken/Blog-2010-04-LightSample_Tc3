@@ -1,0 +1,56 @@
+﻿<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.0.23">
+  <POU Name="FB_StandardLight" Id="{d28b202b-138f-4e87-a4cb-fff68407120a}">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_StandardLight IMPLEMENTS ILight
+VAR
+	bControlValue	: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="M_On" Id="{3eeb9c74-f481-47e5-97d9-17a1cde6a3ed}">
+      <Declaration><![CDATA[METHOD M_On
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[P_ControlValue := TRUE;]]></ST>
+      </Implementation>
+      <ObjectProperties />
+    </Method>
+    <Method Name="M_Off" Id="{9ad83c69-c1d6-4ee0-bf07-c8cbaa7f2dbe}">
+      <Declaration><![CDATA[METHOD M_Off
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[P_ControlValue := FALSE;]]></ST>
+      </Implementation>
+      <ObjectProperties />
+    </Method>
+    <Property Name="P_ControlValue" Id="{abc02efd-3e09-45e3-b8c0-437cc4708886}">
+      <Declaration><![CDATA[PROPERTY P_ControlValue : BOOL
+]]></Declaration>
+      <Get Name="Get" Id="{6cd133f6-14bc-474f-bfb3-343d5412178d}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[P_ControlValue := bControlValue;]]></ST>
+        </Implementation>
+        <ObjectProperties />
+      </Get>
+      <Set Name="Set" Id="{7abefdb8-e6ff-41d9-b740-d5d20f2d1415}">
+        <Declaration><![CDATA[]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[bControlValue := P_ControlValue;]]></ST>
+        </Implementation>
+        <ObjectProperties />
+      </Set>
+      <ObjectProperties />
+    </Property>
+    <Method Name="M_Execution" Id="{fe1e585a-c63e-4fca-8243-ec2fe2e465b6}">
+      <Declaration><![CDATA[METHOD M_Execution
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+      <ObjectProperties />
+    </Method>
+    <ObjectProperties />
+  </POU>
+</TcPlcObject>
